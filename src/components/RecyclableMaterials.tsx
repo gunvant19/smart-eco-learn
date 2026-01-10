@@ -1,21 +1,21 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-  FileText, 
-  Package, 
-  Wine, 
-  Wrench, 
-  Cpu, 
-  Leaf, 
-  Shirt, 
-  CircleDot, 
-  TreePine,
-  Sparkles
-} from 'lucide-react';
+
+// Import material images
+import paperImg from '@/assets/materials/paper.jpg';
+import plasticImg from '@/assets/materials/plastic.jpg';
+import glassImg from '@/assets/materials/glass.jpg';
+import metalImg from '@/assets/materials/metal.jpg';
+import ewasteImg from '@/assets/materials/ewaste.jpg';
+import organicImg from '@/assets/materials/organic.jpg';
+import textileImg from '@/assets/materials/textile.jpg';
+import rubberImg from '@/assets/materials/rubber.jpg';
+import woodImg from '@/assets/materials/wood.jpg';
+import specialImg from '@/assets/materials/special.jpg';
 
 const materials = [
   {
-    icon: FileText,
+    image: paperImg,
     name: { en: 'Paper & Cardboard', hi: 'कागज और कार्डबोर्ड', mr: 'कागद आणि कार्डबोर्ड' },
     binColor: 'Blue',
     binClass: 'bg-blue-500',
@@ -31,7 +31,7 @@ const materials = [
     },
   },
   {
-    icon: Package,
+    image: plasticImg,
     name: { en: 'Plastic', hi: 'प्लास्टिक', mr: 'प्लास्टिक' },
     binColor: 'Blue',
     binClass: 'bg-blue-500',
@@ -47,7 +47,7 @@ const materials = [
     },
   },
   {
-    icon: Wine,
+    image: glassImg,
     name: { en: 'Glass', hi: 'कांच', mr: 'काच' },
     binColor: 'Green',
     binClass: 'bg-green-500',
@@ -63,7 +63,7 @@ const materials = [
     },
   },
   {
-    icon: Wrench,
+    image: metalImg,
     name: { en: 'Metal', hi: 'धातु', mr: 'धातू' },
     binColor: 'Blue',
     binClass: 'bg-blue-500',
@@ -79,7 +79,7 @@ const materials = [
     },
   },
   {
-    icon: Cpu,
+    image: ewasteImg,
     name: { en: 'E-Waste', hi: 'ई-कचरा', mr: 'ई-कचरा' },
     binColor: 'Special',
     binClass: 'bg-purple-500',
@@ -95,7 +95,7 @@ const materials = [
     },
   },
   {
-    icon: Leaf,
+    image: organicImg,
     name: { en: 'Organic / Compostable', hi: 'जैविक / खाद योग्य', mr: 'सेंद्रिय / कंपोस्टेबल' },
     binColor: 'Green',
     binClass: 'bg-green-600',
@@ -111,7 +111,7 @@ const materials = [
     },
   },
   {
-    icon: Shirt,
+    image: textileImg,
     name: { en: 'Textile', hi: 'कपड़ा', mr: 'कापड' },
     binColor: 'Special',
     binClass: 'bg-pink-500',
@@ -127,7 +127,7 @@ const materials = [
     },
   },
   {
-    icon: CircleDot,
+    image: rubberImg,
     name: { en: 'Rubber', hi: 'रबर', mr: 'रबर' },
     binColor: 'Special',
     binClass: 'bg-gray-700',
@@ -143,7 +143,7 @@ const materials = [
     },
   },
   {
-    icon: TreePine,
+    image: woodImg,
     name: { en: 'Wood', hi: 'लकड़ी', mr: 'लाकूड' },
     binColor: 'Special',
     binClass: 'bg-amber-700',
@@ -159,7 +159,7 @@ const materials = [
     },
   },
   {
-    icon: Sparkles,
+    image: specialImg,
     name: { en: 'Special Recyclables', hi: 'विशेष पुनर्चक्रण योग्य', mr: 'विशेष पुनर्वापरयोग्य' },
     binColor: 'Special',
     binClass: 'bg-indigo-500',
@@ -203,16 +203,20 @@ const RecyclableMaterials = () => {
               key={index}
               className="group hover:shadow-eco transition-all duration-300 hover:-translate-y-1 bg-card border-border overflow-hidden"
             >
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 rounded-xl bg-eco-light group-hover:bg-eco-primary/20 transition-colors">
-                    <material.icon className="w-6 h-6 text-eco-primary" />
-                  </div>
-                  <div className={`px-3 py-1 rounded-full text-white text-xs font-medium ${material.binClass}`}>
-                    {material.binColor}
-                  </div>
+              {/* Material Image */}
+              <div className="relative h-40 overflow-hidden">
+                <img 
+                  src={material.image} 
+                  alt={getLocalizedText(material.name)}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-white text-xs font-medium ${material.binClass}`}>
+                  {material.binColor}
                 </div>
+              </div>
 
+              <CardContent className="p-5">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   {getLocalizedText(material.name)}
                 </h3>
