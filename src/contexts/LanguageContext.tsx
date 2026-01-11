@@ -20,9 +20,9 @@ export const translations: Translations = {
   
   // Hero
   heroTitle: { 
-    en: 'Recycle Smart. Protect the Planet with AI.', 
-    hi: 'स्मार्ट रीसाइक्लिंग। AI के साथ ग्रह की रक्षा करें।', 
-    mr: 'स्मार्ट रिसायकल करा. AI सोबत पृथ्वीचे रक्षण करा.' 
+    en: 'Clean India, Green India', 
+    hi: 'स्वच्छ भारत, हरित भारत', 
+    mr: 'स्वच्छ भारत, हरित भारत' 
   },
   heroSubtitle: { 
     en: 'Harness the power of artificial intelligence to make recycling easier, smarter, and more impactful. Together, we can build a sustainable future.', 

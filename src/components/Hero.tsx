@@ -61,7 +61,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => document.getElementById('chatbot-trigger')?.click()}
-              className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 gap-2 px-8"
+              className="border-eco-accent text-eco-accent bg-eco-accent/10 hover:bg-eco-accent/20 hover:border-eco-accent gap-2 px-8"
             >
               <MessageCircle className="w-5 h-5" />
               {t('chatWithBot')}
