@@ -1,8 +1,5 @@
-import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { Play } from 'lucide-react';
-import VideoModal from './VideoModal';
 
 // Import material images
 import paperImg from '@/assets/materials/paper.jpg';
@@ -32,7 +29,6 @@ const materials = [
       hi: 'पेड़ों की बचत और लैंडफिल कचरा कम करता है',
       mr: 'झाडे वाचवतो आणि कचराभूमी कमी करतो'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder - replace with real URL
   },
   {
     image: plasticImg,
@@ -49,7 +45,6 @@ const materials = [
       hi: 'समुद्री प्रदूषण और तेल की खपत कम करता है',
       mr: 'समुद्र प्रदूषण आणि तेल वापर कमी करतो'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: glassImg,
@@ -66,7 +61,6 @@ const materials = [
       hi: 'गुणवत्ता हानि के बिना 100% अनंत पुनर्चक्रण योग्य',
       mr: 'गुणवत्ता न गमावता 100% अमर्यादपणे पुनर्वापरयोग्य'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: metalImg,
@@ -83,7 +77,6 @@ const materials = [
       hi: 'नए उत्पादन की तुलना में 95% ऊर्जा बचाता है',
       mr: 'नवीन उत्पादनाच्या तुलनेत 95% ऊर्जा वाचवतो'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: ewasteImg,
@@ -100,7 +93,6 @@ const materials = [
       hi: 'कीमती धातुओं की पुनर्प्राप्ति, विषैले प्रदूषण को रोकता है',
       mr: 'मौल्यवान धातू परत मिळवतो, विषारी प्रदूषण टाळतो'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: organicImg,
@@ -117,7 +109,6 @@ const materials = [
       hi: 'पोषक तत्वों से भरपूर मिट्टी बनाता है, मीथेन कम करता है',
       mr: 'पोषक तत्वांनी समृद्ध माती तयार करतो, मिथेन कमी करतो'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: textileImg,
@@ -134,7 +125,6 @@ const materials = [
       hi: 'पानी के उपयोग और लैंडफिल कचरे को कम करता है',
       mr: 'पाणी वापर आणि कचराभूमी कचरा कमी करतो'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: rubberImg,
@@ -151,7 +141,6 @@ const materials = [
       hi: 'खेल के मैदानों, सड़कों और नए उत्पादों में उपयोग किया जाता है',
       mr: 'खेळाचे मैदान, रस्ते आणि नवीन उत्पादनांमध्ये वापरले जाते'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: woodImg,
@@ -168,7 +157,6 @@ const materials = [
       hi: 'फर्नीचर, मल्च और बायोमास ऊर्जा में पुन: उपयोग',
       mr: 'फर्निचर, मल्च आणि बायोमास ऊर्जेमध्ये पुन्हा वापरले जाते'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     image: specialImg,
@@ -185,13 +173,11 @@ const materials = [
       hi: 'पर्यावरण के खतरनाक संदूषण को रोकता है',
       mr: 'पर्यावरणाचे धोकादायक प्रदूषण रोखतो'
     },
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
 ];
 
 const RecyclableMaterials = () => {
   const { language, t } = useLanguage();
-  const [selectedVideo, setSelectedVideo] = useState<{ url: string; title: string } | null>(null);
 
   const getLocalizedText = (obj: { en: string; hi: string; mr: string }) => {
     if (language === 'hi') return obj.hi;
@@ -217,7 +203,7 @@ const RecyclableMaterials = () => {
               key={index}
               className="group hover:shadow-eco transition-all duration-300 hover:-translate-y-1 bg-card border-border overflow-hidden"
             >
-              {/* Material Image with Video Play Button */}
+              {/* Material Image */}
               <div className="relative h-40 overflow-hidden">
                 <img 
                   src={material.image} 
@@ -228,16 +214,6 @@ const RecyclableMaterials = () => {
                 <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-white text-xs font-medium ${material.binClass}`}>
                   {material.binColor}
                 </div>
-                
-                {/* Video Play Button */}
-                <button
-                  onClick={() => setSelectedVideo({ url: material.videoUrl, title: getLocalizedText(material.name) })}
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                  <div className="w-14 h-14 rounded-full bg-eco-primary/90 flex items-center justify-center shadow-lg hover:bg-eco-primary transition-colors">
-                    <Play className="w-6 h-6 text-white ml-1" fill="white" />
-                  </div>
-                </button>
               </div>
 
               <CardContent className="p-5">
@@ -263,31 +239,12 @@ const RecyclableMaterials = () => {
                       {getLocalizedText(material.benefit)}
                     </p>
                   </div>
-
-                  {/* Watch Tutorial Link */}
-                  <button
-                    onClick={() => setSelectedVideo({ url: material.videoUrl, title: getLocalizedText(material.name) })}
-                    className="flex items-center gap-2 text-sm text-eco-primary hover:text-eco-primary/80 transition-colors pt-2"
-                  >
-                    <Play className="w-4 h-4" />
-                    {t('watchTutorial')}
-                  </button>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
-
-      {/* Video Modal */}
-      {selectedVideo && (
-        <VideoModal
-          isOpen={!!selectedVideo}
-          onClose={() => setSelectedVideo(null)}
-          videoUrl={selectedVideo.url}
-          title={selectedVideo.title}
-        />
-      )}
     </section>
   );
 };
