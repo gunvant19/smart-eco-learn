@@ -142,16 +142,16 @@ const Dashboard = () => {
         </div>
 
         {/* Charts */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Area Chart */}
           <Card className="bg-card border-border">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-6">
+            <CardContent className="p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6">
                 Monthly Recycling Trend
               </h3>
-              <div className="h-[300px]">
+              <div className="h-[250px] sm:h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={monthlyData}>
+                  <AreaChart data={monthlyData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
                     <defs>
                       <linearGradient id="colorRecycled" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#22c55e" stopOpacity={0.3} />
@@ -163,13 +163,24 @@ const Dashboard = () => {
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
-                    <YAxis stroke="hsl(var(--muted-foreground))" />
+                    <XAxis 
+                      dataKey="month" 
+                      stroke="hsl(var(--muted-foreground))" 
+                      tick={{ fontSize: 12 }}
+                      tickMargin={8}
+                    />
+                    <YAxis 
+                      stroke="hsl(var(--muted-foreground))" 
+                      tick={{ fontSize: 12 }}
+                      tickMargin={8}
+                      width={40}
+                    />
                     <Tooltip
                       contentStyle={{
                         backgroundColor: 'hsl(var(--card))',
                         border: '1px solid hsl(var(--border))',
                         borderRadius: '8px',
+                        fontSize: '12px',
                       }}
                     />
                     <Area
@@ -196,44 +207,47 @@ const Dashboard = () => {
 
           {/* Pie Chart */}
           <Card className="bg-card border-border">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-6">
+            <CardContent className="p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6">
                 Waste Breakdown by Category
               </h3>
-              <div className="h-[300px] flex items-center">
-                <ResponsiveContainer width="50%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={wasteBreakdown}
-                      cx="50%"
-                      cy="50%"
-                      innerRadius={60}
-                      outerRadius={100}
-                      paddingAngle={5}
-                      dataKey="value"
-                    >
-                      {wasteBreakdown.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: 'hsl(var(--card))',
-                        border: '1px solid hsl(var(--border))',
-                        borderRadius: '8px',
-                      }}
-                    />
-                  </PieChart>
-                </ResponsiveContainer>
-                <div className="w-1/2 space-y-2">
+              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-0">
+                <div className="h-[200px] sm:h-[250px] w-full sm:w-1/2">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={wasteBreakdown}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={50}
+                        outerRadius={80}
+                        paddingAngle={5}
+                        dataKey="value"
+                      >
+                        {wasteBreakdown.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: 'hsl(var(--card))',
+                          border: '1px solid hsl(var(--border))',
+                          borderRadius: '8px',
+                          fontSize: '12px',
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="w-full sm:w-1/2 grid grid-cols-2 sm:grid-cols-1 gap-2">
                   {wasteBreakdown.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
+                    <div key={index} className="flex items-center gap-2 sm:gap-3">
                       <div
-                        className="w-3 h-3 rounded-full"
+                        className="w-3 h-3 rounded-full flex-shrink-0"
                         style={{ backgroundColor: item.color }}
                       />
-                      <span className="text-sm text-muted-foreground">{item.name}</span>
-                      <span className="text-sm font-medium text-foreground ml-auto">
+                      <span className="text-xs sm:text-sm text-muted-foreground truncate">{item.name}</span>
+                      <span className="text-xs sm:text-sm font-medium text-foreground ml-auto">
                         {item.value}%
                       </span>
                     </div>
