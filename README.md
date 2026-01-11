@@ -1,73 +1,39 @@
-# Welcome to your Lovable project
+AI-Based Recycling Awareness Portal 
 
-## Project info
+1.	Motivation Behind the Idea
+Improper waste disposal and lack of recycling awareness are major environmental challenges. A large portion of waste that could be recycled ends up in landfills due to poor segregation practices and limited public knowledge. With the growth of Artificial Intelligence, there is an opportunity to make recycling smarter, more engaging, and more accessible. This project is motivated by the need to combine AI and modern web technologies to educate people, promote responsible consumption, and encourage sustainable lifestyles through an interactive and user-friendly platform.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+2.	Problem Statement
+Frontend for ai based recycling awareness portal.
 
-## How can I edit this code?
+3.	Proposed Solution
+The AI-Based Recycling Awareness Portal is a responsive, eco-themed website that educates users through interactive UI components and simulated AI features. The system provides a multilingual experience (English, Hindi, Marathi) and includes an AI recycling chatbot, waste classification demo, smart suggestions, awareness dashboards, and structured educational sections. The portal visually demonstrates how AI can support recycling awareness and environmental responsibility.
 
-There are several ways of editing your application.
+4.	Key Features
+•	Modern, responsive, eco-friendly UI with background imagery and animations.
+•	Multilingual language switcher (English, Hindi, Marathi).
+•	Floating AI recycling chatbot with awareness-based responses.
+•	AI waste classification UI demo with category, bin color, instructions, and confidence score.
+•	Smart AI suggestions with facts, recycling tips, and pollution reduction messages.
+•	Recyclable materials section with categorized cards.
+•	Recycling tips, do’s and don’ts, and waste segregation rules.
+•	Awareness dashboard with charts, counters, and environmental impact indicators.
+•	User interaction forms, smooth scrolling, and accessibility-friendly design.
 
-**Use Lovable**
+ 
+5.	AI Tools and Technologies Used (Frontend Demonstration)
+•	AI Recycling Chatbot (UI Simulation): Demonstrates how AI can answer recycling-related questions, give tips, and spread awareness in multiple languages.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+•	AI Waste Classification Demo: Image upload interface that shows simulated AI outputs such as waste type, bin color, recycling method, environmental impact, and AI confidence score.
 
-Changes made via Lovable will be committed automatically to this repo.
+•	Smart AI Suggestions: Displays AI-generated facts, best practices, and sustainability tips after classification.
 
-**Use your preferred IDE**
+6.	System Design Overview
+The portal is designed as a frontend-focused web application. It uses a sticky navigation bar with smooth scrolling, card- based layouts, and eco-friendly color schemes. The architecture conceptually includes UI modules for chatbot interaction, image upload and classification display, multilingual content rendering, and awareness dashboards. The system is scalable and can be extended by connecting real AI models and backend services in the future.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+7.	Future Scope
+•	Integration with real AI models for live waste detection and chatbot intelligence.
+•	Mobile application version for wider accessibility.
+•	Gamification features such as rewards and recycling challenges.
+•	Collaboration with municipal bodies and environmental organizations.
+•	Real-time data dashboards for community-level impact tracking.
