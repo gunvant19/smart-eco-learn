@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Zap, Trash2, Cloud, TreePine, TrendingUp } from 'lucide-react';
@@ -40,12 +40,18 @@ interface StatCardProps {
   label: string;
   suffix: string;
   color: string;
+  isVisible: boolean;
+  delay: number;
 }
 
-const StatCard = ({ icon: Icon, value, targetValue, label, suffix, color }: StatCardProps) => {
+const StatCard = ({ icon: Icon, targetValue, label, suffix, color, isVisible, delay }: StatCardProps) => {
   const [displayValue, setDisplayValue] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
+    if (!isVisible || hasAnimated) return;
+    
+    setHasAnimated(true);
     const duration = 2000;
     const steps = 60;
     const increment = targetValue / steps;
@@ -62,10 +68,15 @@ const StatCard = ({ icon: Icon, value, targetValue, label, suffix, color }: Stat
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [targetValue]);
+  }, [targetValue, isVisible, hasAnimated]);
 
   return (
-    <Card className={`bg-gradient-to-br ${color} border-0 overflow-hidden`}>
+    <Card 
+      className={`bg-gradient-to-br ${color} border-0 overflow-hidden transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
           <div>
@@ -89,6 +100,25 @@ const StatCard = ({ icon: Icon, value, targetValue, label, suffix, color }: Stat
 
 const Dashboard = () => {
   const { t } = useLanguage();
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const stats = [
     {
@@ -135,9 +165,9 @@ const Dashboard = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div ref={statsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {stats.map((stat, index) => (
-            <StatCard key={index} {...stat} />
+            <StatCard key={index} {...stat} isVisible={isVisible} delay={index * 100} />
           ))}
         </div>
 
