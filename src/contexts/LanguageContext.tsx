@@ -58,6 +58,7 @@ export const translations: Translations = {
   },
   recycleMethod: { en: 'How to Recycle', hi: 'रीसायकल कैसे करें', mr: 'रिसायकल कसे करावे' },
   benefit: { en: 'Benefit', hi: 'लाभ', mr: 'फायदा' },
+  watchTutorial: { en: 'Watch Tutorial', hi: 'ट्यूटोरियल देखें', mr: 'ट्यूटोरियल पहा' },
   
   // Tips
   tipsTitle: { en: 'Recycling Tips & Guidelines', hi: 'रीसाइक्लिंग टिप्स और दिशानिर्देश', mr: 'रिसायकलिंग टिप्स आणि मार्गदर्शक तत्त्वे' },
@@ -70,6 +71,50 @@ export const translations: Translations = {
   wasteReduced: { en: 'Waste Reduced', hi: 'कम किया गया कचरा', mr: 'कमी केलेला कचरा' },
   carbonReduced: { en: 'Carbon Footprint Reduced', hi: 'कार्बन फुटप्रिंट कम', mr: 'कार्बन फूटप्रिंट कमी' },
   treesEquivalent: { en: 'Trees Equivalent', hi: 'पेड़ों के बराबर', mr: 'झाडांच्या समतुल्य' },
+  
+  // Gamification
+  gamificationTitle: { en: 'Rewards & Challenges', hi: 'पुरस्कार और चुनौतियां', mr: 'पुरस्कार आणि आव्हाने' },
+  gamificationDesc: { 
+    en: 'Earn points, complete challenges, and unlock rewards by recycling responsibly.', 
+    hi: 'जिम्मेदारी से रीसाइक्लिंग करके अंक अर्जित करें, चुनौतियां पूरी करें और पुरस्कार अनलॉक करें।',
+    mr: 'जबाबदारीने रिसायकलिंग करून गुण मिळवा, आव्हाने पूर्ण करा आणि पुरस्कार अनलॉक करा.'
+  },
+  yourProgress: { en: 'Your Progress', hi: 'आपकी प्रगति', mr: 'तुमची प्रगती' },
+  points: { en: 'points', hi: 'अंक', mr: 'गुण' },
+  levelProgress: { en: 'Level Progress', hi: 'स्तर प्रगति', mr: 'पातळी प्रगती' },
+  dayStreak: { en: 'Day Streak!', hi: 'दिन की लगातार!', mr: 'दिवसांची मालिका!' },
+  yourBadges: { en: 'Your Badges', hi: 'आपके बैज', mr: 'तुमचे बॅज' },
+  badgeRecycler: { en: 'Recycler', hi: 'रीसायक्लर', mr: 'रिसायक्लर' },
+  badgeStreak: { en: 'Streak', hi: 'स्ट्रीक', mr: 'स्ट्रीक' },
+  badgeExpert: { en: 'Expert', hi: 'विशेषज्ञ', mr: 'तज्ञ' },
+  badgePerfect: { en: 'Perfect', hi: 'परफेक्ट', mr: 'परफेक्ट' },
+  activeChallenges: { en: 'Active Challenges', hi: 'सक्रिय चुनौतियां', mr: 'सक्रिय आव्हाने' },
+  challenge1Title: { en: 'Plastic Free Week', hi: 'प्लास्टिक मुक्त सप्ताह', mr: 'प्लास्टिक मुक्त आठवडा' },
+  challenge1Desc: { en: 'Recycle 10 plastic items this week', hi: 'इस सप्ताह 10 प्लास्टिक वस्तुओं का पुनर्चक्रण करें', mr: 'या आठवड्यात 10 प्लास्टिक वस्तूंचा रिसायकल करा' },
+  challenge2Title: { en: 'E-Waste Champion', hi: 'ई-कचरा चैंपियन', mr: 'ई-कचरा चॅम्पियन' },
+  challenge2Desc: { en: 'Dispose 5 electronic items properly', hi: '5 इलेक्ट्रॉनिक वस्तुओं का उचित निपटान करें', mr: '5 इलेक्ट्रॉनिक वस्तूंची योग्य विल्हेवाट लावा' },
+  challenge3Title: { en: 'Community Hero', hi: 'समुदाय का नायक', mr: 'समुदाय हिरो' },
+  challenge3Desc: { en: 'Invite 3 friends to join recycling', hi: '3 दोस्तों को रीसाइक्लिंग में शामिल होने के लिए आमंत्रित करें', mr: 'रिसायकलिंगमध्ये सामील होण्यासाठी 3 मित्रांना आमंत्रित करा' },
+  participants: { en: 'participants', hi: 'प्रतिभागी', mr: 'सहभागी' },
+  complete: { en: 'complete', hi: 'पूर्ण', mr: 'पूर्ण' },
+  joinChallenge: { en: 'Join Challenge', hi: 'चुनौती में शामिल हों', mr: 'आव्हानात सामील व्हा' },
+  rewardsTitle: { en: 'Rewards', hi: 'पुरस्कार', mr: 'पुरस्कार' },
+  reward1: { en: 'Eco Sticker Pack', hi: 'इको स्टिकर पैक', mr: 'इको स्टिकर पॅक' },
+  reward2: { en: 'Reusable Bag', hi: 'पुन: प्रयोज्य बैग', mr: 'पुन्हा वापरता येणारी बॅग' },
+  reward3: { en: 'Plant a Tree Certificate', hi: 'पेड़ लगाओ प्रमाणपत्र', mr: 'झाड लावा प्रमाणपत्र' },
+  reward4: { en: 'Eco Warrior Badge', hi: 'इको वॉरियर बैज', mr: 'इको वॉरियर बॅज' },
+  claim: { en: 'Claim', hi: 'दावा करें', mr: 'दावा करा' },
+
+  // Collaborations
+  collaborationsTitle: { en: 'Our Partners', hi: 'हमारे साझेदार', mr: 'आमचे भागीदार' },
+  collaborationsDesc: { 
+    en: 'Working together with municipal bodies and environmental organizations to create a sustainable future.', 
+    hi: 'एक स्थायी भविष्य बनाने के लिए नगर निकायों और पर्यावरण संगठनों के साथ मिलकर काम कर रहे हैं।',
+    mr: 'शाश्वत भविष्य निर्माण करण्यासाठी नगरपालिका संस्था आणि पर्यावरण संस्थांसोबत एकत्र काम करत आहोत.'
+  },
+  becomePartner: { en: 'Become a Partner', hi: 'साझेदार बनें', mr: 'भागीदार व्हा' },
+  partnerDesc: { en: 'Join our mission to make India cleaner and greener.', hi: 'भारत को स्वच्छ और हरा-भरा बनाने के हमारे मिशन में शामिल हों।', mr: 'भारत स्वच्छ आणि हिरवे बनवण्याच्या आमच्या मिशनमध्ये सामील व्हा.' },
+  contactUs: { en: 'Contact Us', hi: 'संपर्क करें', mr: 'आमच्याशी संपर्क साधा' },
   
   // Chatbot
   chatbotGreeting: { 
